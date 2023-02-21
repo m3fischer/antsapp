@@ -19,6 +19,7 @@ import green from "@mui/material/colors/green"
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Divider from '@mui/material/Divider';
+import { Link } from "react-router-dom";
 
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
@@ -54,9 +55,21 @@ export default function Navigation() {
           onKeyDown={toggleDrawer(anchor, false)}
         >
           <List>
+            {createItem("QR Reader", 1, "/qrreader")}
+            {createItem("Einstellungen", 1, "/setting")}
+
+          </List>
+          <Divider />
+          <List>
+            {createItem("AGB", 1, "/agb")}
+            {createItem("Impressum", 1, "/impressum")}
+            {createItem("Datenschutz", 1, "/datenschutz")}
+            
+          </List>
+          <List>
             {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
               <ListItem key={text} disablePadding>
-                <ListItemButton>
+                <ListItemButton component="a" href="/setting"> 
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
@@ -101,13 +114,26 @@ export default function Navigation() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              News
+              HOME
             </Typography>
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
       </Box>
     );
+  }
+
+  function createItem(text:string, index:number, url:string) {
+    let listItem =(<ListItem key={text} disablePadding>
+                <ListItemButton component="a" href={url}> 
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>)
+
+return listItem
   }
 
 
