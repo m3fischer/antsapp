@@ -20,6 +20,8 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Divider from '@mui/material/Divider';
 import { Link } from "react-router-dom";
+import AntsNatureLogo from "./img/AntsNature-Logo.png"
+import { Container, Grid } from "@mui/material";
 
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
@@ -97,29 +99,48 @@ export default function Navigation() {
     
     return (
         
-      <Box sx={{ flexGrow: 1 }}>
-        <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
-            {list('left')}
-        </Drawer>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="small"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-              onClick = {toggleDrawer('left', true)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              HOME
-            </Typography>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
+    <Box sx={{ flexGrow: 1 }}>
+      <Drawer anchor={'left'} open={state['left']} onClose={toggleDrawer('left', false)}>
+          {list('left')}
+      </Drawer>
+      <AppBar position="static">
+        <Toolbar>
+          <Container maxWidth="sm">
+            <Grid container spacing={1} sx={{mt:1}}>
+              <Grid xs={4} > 
+                <IconButton
+                  size="small"
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  sx={{ mr: 2 }}
+                  onClick = {toggleDrawer('left', true)}
+                >
+                  <MenuIcon />
+                </IconButton>
+              
+              </Grid>
+
+
+              <Grid xs={4}>
+                <Button size="large" component= "a" color="inherit" href="/" >
+                  <Box component="img" sx={{flexGrow: 1, justifyContent:"center", width: "90%"}}
+                              alt="Antsnature Logo"
+                              src={AntsNatureLogo}
+                          />
+                </Button>
+              </Grid>
+
+
+              <Grid xs={4}  sx={{verticalAlign:"middle", justifyContent:"end"}}>
+                <Button color="inherit">Login</Button>
+              </Grid>
+
+            </Grid>
+          </Container>
+        </Toolbar>
         </AppBar>
-      </Box>
+    </Box>
     );
   }
 

@@ -8,6 +8,8 @@ import { Settings } from './settings/Settings';
 import { Home } from './home/home';
 import Navigation from './navigation';
 import Footer from './footer/Footer'
+import Analytics from './analytics/Analytics';
+import Contact from './contact/Contact';
 
 function App() {
   let appStructure = 
@@ -19,6 +21,10 @@ function App() {
             <Route path="/" element= {<Home/>} />
             <Route path="/setting" element= {<Settings/>} /> 
             <Route path="/qrreader" element= {<Qrreader/>} />
+            <Route path="/analytics" element= {<Analytics/>} />
+            <Route path="/contact" element= {<Contact/>} />
+
+
             <Route path="*" element= {<h1>Schade, das hat nicht geklappt</h1>} />
           </Routes>
         </Router>
