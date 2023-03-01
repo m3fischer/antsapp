@@ -19,7 +19,7 @@ export class Home extends React.Component{
                     <SourceOutlinedIcon sx={{ fontSize: 80 }} color="secondary"/>                
                 </Grid>
                 <Grid xs={8} display="flex" justifyContent="left" alignItems="center">
-                    <Link to={"/setting"}>Stammdaten</Link>
+                    <Link to={"/masterdata"}>Stammdaten</Link>
                 </Grid>
 
 
