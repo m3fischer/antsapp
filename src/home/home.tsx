@@ -10,7 +10,7 @@ import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlin
 export class Home extends React.Component{
     homeStructure = (
         <>
-            <Container maxWidth="sm">
+            <Container maxWidth="sm" className="MainContent">
 
 
 
