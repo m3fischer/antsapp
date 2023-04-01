@@ -1,11 +1,15 @@
-import { Box, Checkbox, Container, FormControlLabel, Grid, TextField, Tooltip } from "@mui/material";
+import { Box, Button, Checkbox, Container, FormControlLabel, Grid, TextField, Tooltip } from "@mui/material";
 import React from "react";
 import AntBox from "../AntForms/AntBox/AntBox";
-import './Masterdata.css'
-
+import './Masterdata.css';
+import axios from "axios";
 
 export default class MasterData extends React.Component{
-    
+    getMasterDataFromServer() {
+        
+        axios.get('http://localhost:3030/masterdata').then ((resp) => {console.log(resp.data)})
+    }
+
     view = (
 
         <Container maxWidth="sm" className="Masterdata" sx={{ flexGrow: 1, mt:"3em" }}>
@@ -30,9 +34,7 @@ export default class MasterData extends React.Component{
                         <FormControlLabel  className="textfield"  id="masterdata-4"  control={<Checkbox />} label="Hast Du durch Klimasteuerung konstanten Werte?"  />
                         <FormControlLabel  className="textfield"  id="masterdata-5"  control={<Checkbox />} label="Fütterst Du auch am Wochenende täglich?"  />
                         <TextField className="textfield" fullWidth id="masterdata-4" label="Outlined" variant="filled" />
-                        <TextField className="textfield" fullWidth id="masterdata-5" label="Outlined" variant="filled" />
-                        <TextField className="textfield" fullWidth id="masterdata-6" label="Outlined" variant="filled" />
-                        <TextField className="textfield" fullWidth id="masterdata-7" label="Outlined" variant="filled" />
+                        <Button variant="contained" onClick={this.getMasterDataFromServer}>Speichern</Button>
                     </Box>
                 </Grid>
                 <Grid xs={4}>
