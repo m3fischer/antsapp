@@ -28,7 +28,7 @@ function App() {
 
 
 
-            <Route path="*" element= {<h1>Schade, das hat nicht geklappt</h1>} />
+            <Route path="*" element= {<h1>schade, das hat nicht geklappt</h1>} />
           </Routes>
         </Router>
         <Footer/>
